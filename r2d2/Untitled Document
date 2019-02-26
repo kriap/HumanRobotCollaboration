@@ -1,0 +1,268 @@
+<?xml version = "1.0"?>
+<robot name="human">
+
+<material name="blue">
+  <color rgba="0 0 1 1"/>
+</material>
+<material name="red">
+  <color rgba="1 0 0 1"/>
+</material>
+<material name="green">
+  <color rgba="0 1 0 1"/>
+</material>
+<material name="yellow">
+  <color rgba="1 1 0 1"/>
+</material>
+<material name="cyan">
+  <color rgba="0 1 1 1"/>
+</material>
+<material name="magneta">
+  <color rgba="1 0 1 1"/>
+</material>
+<material name="black">
+  <color rgba="0 0 0 1"/>
+</material>
+<material name="white">
+  <color rgba="1 1 1 1"/>
+</material>
+<material name="gray">
+  <color rgba="0.5 0.5 0.5 1"/>
+</material>
+  
+<link name ="torso">
+<visual>
+    <geometry>
+      <box size="0.15 0.15 0.125"/>
+    </geometry>
+    <material name="red"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+
+</visual>
+</link>
+
+<link name ="head">
+<visual>
+    <geometry>
+      <sphere radius="0.05"/>
+    </geometry>
+    <material name="green"/>
+    <origin rpy="0 -2.184 -3.142" xyz="0 0 0.125"/>
+</visual>
+</link>
+
+<joint name="neck_2" type="continuous">
+ <parent link="neck"/>
+ <child link="torso"/>
+ </joint>
+
+
+<joint name="head_1" type="continuous">
+ <parent link="head"/>
+ <child link="neck"/>
+</joint>
+
+<link name ="neck">
+<visual>
+    <geometry>
+      <cylinder length="0.025" radius="0.025"/>
+    </geometry>
+    <material name="blue"/>
+    <origin rpy="0 0 -3.142" xyz="0 0 0.075"/>
+</visual>
+</link>
+
+
+<link name ="left_shoulder">
+<visual>
+    <geometry>
+      <cylinder length="0.075" radius="0.025"/>
+    </geometry>
+    <material name="yellow"/>
+    <origin rpy="0 0 -3.142" xyz="-0.1 0 0.025"/>
+</visual>
+</link>
+
+
+<joint name="left_shoulder_1" type="continuous">
+ <parent link="torso"/>
+ <child link="left_shoulder"/>
+</joint>
+
+
+<link name ="left_elbow">
+<visual>
+    <geometry>
+      <cylinder length="0.125" radius="0.025"/>
+    </geometry>
+    <material name="cyan"/>
+    <origin rpy="0 0 -3.142" xyz="-0.1 0 -0.0625"/>
+</visual>
+</link>
+
+
+<joint name="left_elbow_1" type="continuous">
+ <parent link="left_shoulder"/>
+ <child link="left_elbow"/>
+</joint>
+
+<link name ="left_hand">
+<visual>
+    <geometry>
+      <sphere radius="0.02"/>
+    </geometry>
+    <material name="magneta"/>
+    <origin rpy="0 0 -3.142" xyz="-0.1 0 -0.145"/>
+</visual>
+</link>
+
+
+<joint name="left_hand_1" type="continuous">
+ <parent link="left_elbow"/>
+ <child link="left_hand"/>
+</joint>
+
+
+<link name ="left_hip">
+<visual>
+    <geometry>
+      <cylinder length="0.075" radius="0.025"/>
+    </geometry>
+    <material name="black"/>
+    <origin rpy="0 0 -3.142" xyz="-0.05 0 -0.1"/>
+</visual>
+</link>
+
+<joint name="left_hip_1" type="continuous">
+ <parent link="torso"/>
+ <child link="left_hip"/>
+</joint>
+
+<link name ="left_knee" >
+<visual>
+    <geometry>
+      <cylinder length="0.15" radius="0.025"/>
+    </geometry>
+    <material name="white"/>
+    <origin rpy="0 0 -3.142" xyz="-0.05 0 -0.2"/>
+</visual>
+</link>
+
+
+<joint name="left_knee_1" type="continuous">
+ <parent link="left_hip"/>
+ <child link="left_knee"/>
+</joint>
+
+<link name ="left_foot">
+<visual>
+    <geometry>
+      <box size="0.02 0.02 0.03 "/>
+    </geometry>
+    <material name="gray"/>
+    <origin rpy="0 0 -3.142" xyz="-0.05 0 -0.28"/>
+</visual>
+</link>
+
+
+<joint name="left_foot_1" type="continuous">
+ <parent link="left_knee"/>
+ <child link="left_foot"/>
+</joint>
+
+<link name ="right_shoulder">
+<visual>
+    <geometry>
+      <cylinder length="0.075" radius="0.025"/>
+    </geometry>
+    <material name="yellow"/>
+    <origin rpy="0 0 -3.142" xyz="0.1 0 0.025"/>
+</visual>
+</link>
+
+
+<joint name="right_shoulder_1" type="continuous">
+ <parent link="torso"/>
+ <child link="right_shoulder"/>
+</joint>
+
+<link name ="right_elbow">
+<visual>
+    <geometry>
+      <cylinder length="0.125" radius="0.025"/>
+    </geometry>
+    <material name="cyan"/>
+    <origin rpy="0 0 -3.142" xyz="0.1 0 -0.0625"/>
+</visual>
+</link>
+
+
+<joint name="right_elbow_1" type="continuous">
+ <parent link="right_shoulder"/>
+ <child link="right_elbow"/>
+ </joint>
+
+<link name ="right_hand">
+<visual>
+    <geometry>
+      <sphere radius="0.02"/>
+    </geometry>
+    <material name="magneta"/>
+    <origin rpy="0 0 -3.142" xyz="0.1 0 -0.145"/>
+</visual>
+</link>
+
+
+<joint name="right_hand_1" type="continuous">
+ <parent link="right_elbow"/>
+ <child link="right_hand"/>
+ </joint>
+
+
+<link name ="right_hip">
+<visual>
+    <geometry>
+      <cylinder length="0.075" radius="0.025"/>
+    </geometry>
+    <material name="black"/>
+    <origin rpy="0 0 -3.142" xyz="0.05 0 -0.1"/>
+</visual>
+</link>
+
+<joint name="right_hip_1" type="continuous">
+ <parent link="torso"/>
+ <child link="right_hip"/>
+ </joint>
+
+<link name ="right_knee">
+<visual>
+    <geometry>
+      <cylinder length="0.15" radius="0.025"/>
+    </geometry>
+    <material name="white"/>
+    <origin rpy="0 0 -3.142" xyz="0.05 0 -0.2"/>
+</visual>
+</link>
+
+<joint name="right_knee_1" type="continuous">
+ <parent link="right_hip"/>
+ <child link="right_knee"/>
+</joint>
+
+<link name ="right_foot">
+<visual>
+    <geometry>
+      <box size="0.02 0.02 0.03 "/>
+    </geometry>
+    <material name="gray"/>
+    <origin rpy="0 0 -3.142" xyz="0.05 0 -0.28"/>
+</visual>
+</link>
+
+<joint name="right_foot_1" type="continuous">
+ <parent link="right_knee"/>
+ <child link="right_foot"/>
+</joint>
+
+
+</robot>
+

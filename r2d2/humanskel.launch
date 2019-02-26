@@ -1,0 +1,23 @@
+<launch>
+ 
+  <arg name="use_rviz" default="1"/>
+  
+  <arg name="self_joint_publisher" default="1"/>
+  
+  <arg name="model" default="$(find r2d2)/human.urdf"/>
+  
+  <arg name="gui" default="false"/>
+  
+  <param name="robot_description" textfile="$(find r2d2)/human.urdf"/>
+  <param name="use_gui" value="$(arg gui)"/>
+  
+  <node name="map_to_char" pkg="r2d2" type="first.py" if="$(arg self_joint_publisher)">
+    <param name="Fre" value="50"/>
+  </node>
+  
+  <group ns="use_rviz" if="$(arg use_rviz)">
+    <node name="rviz" pkg="rviz" type="rviz" /> 
+  </group>
+
+</launch>
+
